@@ -52,7 +52,9 @@ pts2 = np.int32(pts2)
 fundamental_matrix, inliers = cv2.findFundamentalMat(pts1, pts2, cv2.FM_LMEDS)
 pts1 = pts1[inliers.ravel() == 1] 
 pts2 = pts2[inliers.ravel() == 1]
-        
+pts1 = pts1[0:30] # Too many lines
+pts2 = pts2[0:30]
+
 print('- Rendering epipolar lines...')
 
 def drawlines(img1,img2,lines,pts1,pts2):
